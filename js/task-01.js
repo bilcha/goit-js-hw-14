@@ -1,12 +1,13 @@
-const allCategories = document.querySelectorAll(".item");
-console.log(`Number of categories: ${allCategories.length}`);
-function categoriesDescriber(arr) {
+const allCategories = document.querySelector("#categories");
+console.log(`Number of categories: ${allCategories.children.length}`);
+
+function categoriesDescriber([...arr]) {
   arr.forEach(item => {
     console.log(
-      `Category: ${item.querySelector("h2").textContent}
-Elements: ${item.querySelectorAll("li").length}`
+      `Category: ${item.firstElementChild.textContent}
+Elements: ${item.lastElementChild.children.length}`
       )
-  });
-  
+    })
 }
-categoriesDescriber(allCategories);
+
+categoriesDescriber(allCategories.children);
